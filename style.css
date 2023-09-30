@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+}
+
+#picker-container {
+  width: 100%;
+  height: 50vh;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, #000 0%, rgba(0, 0, 0, 0.50) 38.88%, rgba(0, 0, 0, 0.00) 50.74%, rgba(0, 0, 0, 0.50) 60.67%, rgba(0, 0, 0, 0.90) 100%);
+}
+
+#options {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;  /* Center the ul horizontally */
+  font-size: 55px;
+  line-height: 1;
+  transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.option {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align content to the left */
+  cursor: pointer;
+  user-select: none;
+  padding-left: 44%; /* Optional: Add some padding if desired */
+}
+
+.option div {
+  width: 100%;
+}
+
+#arrow-container{
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  pointer-events: none;
+  z-index: 100;
+}
+
+#arrow-container .arrow{
+  border-radius: 50%;
+  pointer-events: all;
+  margin-left: -25rem;
+  cursor: pointer;
+  transition: .2s all;
+}
+
+#arrow-container .arrow:hover{
+  background: #ffffff25;
+}
+
+/* top section */
+.topSection{
+  height: 50vh;
+  display: flex;
+  gap: 3rem;
+}
+
+.topSection .leftSection{
+  width: 50%;
+  height: 100%;
+}
+
+.topSection .rightSection{
+  width: 50%;
+  height: 100%;
+}
+
+.topSection .details{
+  width: 100%;
+  height: 100%;
+  transition: .2s all;
+  pointer-events: all;
+  display: none;
+}
+
+.show{
+  display: block !important;
+}
+
+
+.goodgit{
+  background: goldenrod;
+}
+
+.commit{
+  background: blue;
+}
+
+.uncommit{
+  background: rgb(0, 255, 76);
+}
+
+.merge{
+  background: rgb(255, 0, 255);
+}
+
+.time-travel{
+  background: rgb(255, 196, 0);
+}
+
+.search{
+  background: rgb(115, 255, 0);
+}
+
+.branch{
+  background: rgb(225, 0, 255);
+}
+
+.setup{
+  background: rgb(0, 255, 200);
+}
+
+.publish{
+  background: rgb(255, 0, 21);
+}
+
+.web{
+  background: rgb(238, 255, 0);
+}
+
+.security{
+  background: rgb(255, 102, 0);
+}

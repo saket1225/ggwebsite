@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Custom Picker</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@701,200,500,301,201,1,300,2,601,600,401,501,400,700&display=swap" rel="stylesheet">
+    
+    <!-- vime player -->
+    <!-- Default theme. ~960B -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/default.css"
+    />
+
+    <!-- Optional light theme (extends default). ~400B -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@vime/core@^5/themes/light.css"
+    />
+
+    <!-- Library and all of its components are lazy loaded, so nothing to sweat about here. ~3kB -->
+    <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@vime/core@^5/dist/vime/vime.esm.js"
+    ></script>
+  </head>
+
+  <body>
+    <div class="topSection">
+      <div class="show goodgit details"></div>
+      <div class="commit details"></div>
+      <div class="uncommit details"></div>
+      <div class="merge details"></div>
+      <div class="time-travel details"></div>
+      <div class="search details"></div>
+      <div class="branch details"></div>
+      <div class="setup details"></div>
+      <div class="publish details"></div>
+      <div class="web details"></div>
+      <div class="security details"></div>
+    </div>
+    
+      <!-- right section containing the video -->
+      <!-- <div class="rightSection">
+        <vm-player autoplay muted>
+          <vm-video poster="/media/poster.png" cross-origin>
+            <track 
+              default 
+              kind="subtitles" 
+              src="https://media.vimejs.com/subs/english.vtt" 
+              srclang="en" 
+              label="English" 
+            />
+            <source data-src="https://media.vimejs.com/720p.mp4" type="video/mp4" />
+          </vm-video>
+          <vm-default-ui />
+        </vm-player> -->
+
+    <div id="arrow-container">
+      <svg onclick="changeOption(-1)" class="arrow up" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="23.9024" cy="23.9024" r="23.2195" stroke="#DCDCDC" stroke-width="1.36585"/>
+        <path d="M23.2195 34.1464C23.2195 34.5235 23.5253 34.8293 23.9024 34.8293C24.2796 34.8293 24.5854 34.5235 24.5854 34.1464L23.2195 34.1464ZM24.3853 13.1757C24.1186 12.909 23.6862 12.909 23.4195 13.1757L19.0734 17.5218C18.8067 17.7885 18.8067 18.2209 19.0734 18.4876C19.3401 18.7543 19.7725 18.7543 20.0392 18.4876L23.9024 14.6244L27.7657 18.4876C28.0324 18.7543 28.4648 18.7543 28.7315 18.4876C28.9982 18.2209 28.9982 17.7885 28.7315 17.5218L24.3853 13.1757ZM24.5854 34.1464L24.5854 13.6586L23.2195 13.6586L23.2195 34.1464L24.5854 34.1464Z" fill="#DCDCDC"/>
+      </svg>
+
+      <svg onclick="changeOption(1)" class="arrow down" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="23.9024" cy="24.0976" r="23.2195" transform="rotate(180 23.9024 24.0976)" stroke="#DCDCDC" stroke-width="1.36585"/>
+        <path d="M24.5854 13.8536C24.5854 13.4765 24.2796 13.1707 23.9024 13.1707C23.5253 13.1707 23.2195 13.4765 23.2195 13.8536L24.5854 13.8536ZM23.4195 34.8243C23.6862 35.091 24.1186 35.091 24.3853 34.8243L28.7315 30.4782C28.9982 30.2115 28.9982 29.7791 28.7315 29.5124C28.4648 29.2457 28.0324 29.2457 27.7657 29.5124L23.9024 33.3756L20.0392 29.5124C19.7725 29.2457 19.3401 29.2457 19.0734 29.5124C18.8067 29.7791 18.8067 30.2115 19.0734 30.4782L23.4195 34.8243ZM23.2195 13.8536L23.2195 34.3414L24.5854 34.3414L24.5854 13.8536L23.2195 13.8536Z" fill="#DCDCDC"/>
+      </svg>
+    </div>  
+    
+    <div id="picker-container" class="picker" onscroll="updateSelection()">
+      <div class="overlay"></div>
+      <ul id="options">
+        <li class="option" onclick="selectOption(0)">goodgit</li>
+        <li class="option" onclick="selectOption(1)">commit</li>
+        <li class="option" onclick="selectOption(2)">uncommit</li>
+        <li class="option" onclick="selectOption(3)">merge</li>
+        <li class="option" onclick="selectOption(4)">time-travel</li>
+        <li class="option" onclick="selectOption(5)">search</li>
+        <li class="option" onclick="selectOption(6)">branch</li>
+        <li class="option" onclick="selectOption(7)">setup</li>
+        <li class="option" onclick="selectOption(8)">publish</li>
+        <li class="option" onclick="selectOption(9)">web</li>
+        <li class="option" onclick="selectOption(10)">security</li>
+      </ul>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
