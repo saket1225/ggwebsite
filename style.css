@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: Arial, sans-serif;
+  font-family: General Sans, sans-serif;
   background-color: #000;
   color: #fff;
 }
@@ -13,7 +13,8 @@ body {
   position: fixed;
   bottom: 0;
   overflow: hidden;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  z-index: -1;
 }
 
 .overlay{
@@ -43,6 +44,7 @@ body {
   cursor: pointer;
   user-select: none;
   padding-left: 44%; /* Optional: Add some padding if desired */
+  font-weight: 500;
 }
 
 .option div {
@@ -73,22 +75,70 @@ body {
   background: #ffffff25;
 }
 
+#arrow-container .arrow:active{
+  background: #ffffff55;
+}
+
 /* top section */
 .topSection{
+  z-index: 1000 !important;
   height: 50vh;
+}
+
+.topSection .details{
   display: flex;
-  gap: 3rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  gap: 2rem;
 }
 
-.topSection .leftSection{
-  width: 50%;
+.topSection .details .leftSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 60%;
+  flex: 1;
+}
+
+
+
+.topSection .details .leftSection .heading{
+  margin-left: 73px;
+  margin-top: 56px;
+  font-weight: 300;
+  color: #DCDCDC;
+  font-size: 55px;
+}
+
+.topSection .details .rightSection{
+  display: flex;
+  height: 90%;
+  width: 40%;
+  border: 2px solid #fff;
+  margin-top: 40px;
+  margin-right: 40px;
+  flex: 1;
+  position: relative;
+  /* padding-bottom: 56.25%; */
+}
+
+video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
 }
 
-.topSection .rightSection{
-  width: 50%;
+.topSection .details .rightSection video{
+  position: relative;
+  top: 0;
+  width: 100%;
   height: 100%;
 }
+
 
 .topSection .details{
   width: 100%;
@@ -96,53 +146,615 @@ body {
   transition: .2s all;
   pointer-events: all;
   display: none;
+  z-index: 1000;
 }
 
 .show{
+  display: flex !important;
+}
+
+.copyDiv{
+  display: flex;
+  border: 1px solid #fff;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  margin: 0 73px;
+  font-size: 1rem;
+  position: relative;
+  width: 84%;
+}
+
+.copyDiv .text{
+  font-weight: 400;
+  font-family: Source Code Pro;
+}
+
+.copyDiv .copy{
+  font-weight: 400;
+  cursor: pointer;
+  transition: .2s all;
+}
+
+.copy:hover{
+  font-weight: 500;
+}
+
+.goodgit .logo{
+  margin-left: 73px;
+  margin-top: 10rem;
+}
+
+.copied {
+  position: absolute;
+  animation: balloon 1s forwards;
+  pointer-events: none;
+  color: #73F698;
+}
+
+@keyframes balloon {
+  0%{
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+
+  100%{
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.copyParentDiv{
+  display: flex;
+  width: 90%;
+  margin-left: 73px;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.copyParentDiv .copyDiv{
+  margin-left: 0rem;
+  margin-right: 0rem;
+  width: 35%;
+}
+
+.copyParentDiv .or{
+  margin: auto 25px;
+  font-size: 1.3rem;
+}
+
+/* goodgit section */
+.goodgit .leftSection{
   display: block !important;
 }
 
-
-.goodgit{
-  background: goldenrod;
+.goodgit .rightSection{
+  border-color: #FFD18B !important;
 }
 
-.commit{
-  background: blue;
+.goodgit .rightSection .allNeed{
+  z-index: 100;
+  position: relative;
+  top: 100%;
+  margin-top: -1rem;
+  margin-left: -2rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.uncommit{
-  background: rgb(0, 255, 76);
+.goodgit .rightSection .allNeed p{
+  color: #FFD18B;
+  font-size: 1.3rem;
+  margin-left: -3rem;
 }
 
-.merge{
-  background: rgb(255, 0, 255);
+.goodgit .rightSection .allNeed svg{
+  transform: scale(1.3);
 }
 
-.time-travel{
-  background: rgb(255, 196, 0);
+.goodgit .leftSection .copyDiv{
+  margin-top: 3rem;
 }
 
-.search{
-  background: rgb(115, 255, 0);
+/* commit section */
+.commitIllustration{
+  transform: scale(1.2);
+  top: 30%;
+  left: 18%;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
 }
 
-.branch{
-  background: rgb(225, 0, 255);
+.commit .leftSection .heading{
+  font-size: 60px;
 }
 
-.setup{
-  background: rgb(0, 255, 200);
+/* merge section */
+.merge .leftSection .dailyText{
+  font-size: 1.3rem;
+  margin-left: 73px;
+  margin-top: 1.5rem;
 }
 
-.publish{
-  background: rgb(255, 0, 21);
+.merge .leftSection{
+  display: block !important;
 }
 
-.web{
-  background: rgb(238, 255, 0);
+.mergeIllustration{
+  width: 75%;
+  margin-left: 73px;
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
 }
 
-.security{
-  background: rgb(255, 102, 0);
+
+/* time travel section */
+.time-travel .leftSection{
+  display: block !important;
+}
+
+.time-travel .copyParentDiv{
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.ttIllustration{
+  margin-left: 73px;
+  margin-top: 3rem;
+  width: 85%;
+  margin-bottom: 1.5rem;
+}
+
+/* search section */
+.searchIllustration{
+  width: 50%;
+  margin-left: 73px;
+  margin-top: 3rem;
+}
+
+/* branch section */
+.branchIllustration{
+  width: 50%;
+  margin-left: 73px;
+  margin-top: 2rem;
+}
+
+/* setup section */
+.setup .leftSection{
+  display: block !important;
+}
+
+.setup .leftSection .heading{
+  position: relative;
+  top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: #73F698 !important;
+  font-size: 43px !important;
+  font-weight: 500 !important;
+  margin-left: 73px;
+}
+
+.setup .leftSection .description{
+  font-size: 25px;
+  font-weight: 400;
+  margin-left: 73px;
+  margin-top: 3rem;
+  color: #FFD18B;
+}
+
+.setup .leftSection .multipleAccounts{
+  margin-left: 73px;
+  width: 35%;
+  margin-bottom: 5rem;
+}
+
+/* security section */
+.securitySection{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.securitySection .heading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: 300;
+  font-size: 3rem;
+}
+
+.securitySection .heading span{
+  color: #73F698;
+}
+
+.securitySection .list{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.securitySection h2{
+  font-weight: 400;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.securitySection .list .leftList{
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  gap: 1rem;
+}
+
+.securitySection .list .rightList{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 1rem;
+  color: #73F698;
+}
+
+.securitySection .list .centerDots{
+  display: flex;
+  gap: 3.2rem;
+  flex-direction: column;
+}
+
+.securitySection .list .centerDots .dot{
+  width: 0.5rem;
+  height: 0.5rem;
+  background: #73F698;
+  border-radius: 50%;
+}
+
+/* publish section */
+.publish .leftSection{
+  display: flex !important;
+}
+
+.publish .leftSection .description{
+  margin-left: 73px;
+  margin-top: -1rem;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.publish .leftSection .description span{
+  color: #FFD18B;
+}
+
+.publish .leftSection .publishIllustration{
+  margin-left: 73px;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  width: 50%;
+}
+
+/* web section */
+.webIllustration{
+  transform: scale(1.3);
+  top: 27%;
+  left: 5%;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+}
+
+
+
+/* video controls */
+.controls {
+  position: absolute;
+  bottom: 52%;
+  width: 37%;
+  margin-left: -0%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  backdrop-filter: blur(10px); /* Slight blur effect */
+}
+
+.playPause svg,
+.volume-control svg {
+  cursor: pointer;
+}
+
+.volume-control{
+  display: flex;
+  align-items: center;
+}
+
+.seek-bar{
+  width: 100%;
+}
+
+.left-controls, .right-controls {
+  display: flex;
+  align-items: center;
+}
+
+.seek-bar,
+.volume-bar {
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: #FFF; /* White background */
+  border-radius: 2px; /* Rounded corners */
+  outline: none;
+  margin: 0 5px;
+  transition: background 0.3s; /* Smooth color transition */
+  transition: display 0.3s;
+}
+
+.volume-button:hover + .volume-bar {
+  display: block;
+}
+
+.time {
+  margin-left: 10px;
+}
+
+.seek-bar::-webkit-slider-thumb,
+.volume-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  background: #333; /* Darker thumb */
+  border-radius: 50%; /* Circular thumb */
+  cursor: pointer;
+  transition: background 0.3s; /* Smooth color transition */
+}
+
+/* Styles for active state */
+.seek-bar:focus,
+.volume-bar:focus {
+  background: #333; /* Darker background when focused */
+}
+
+.seek-bar:focus::-webkit-slider-thumb,
+.volume-bar:focus::-webkit-slider-thumb {
+  background: #FFF; /* White thumb when focused */
+}
+
+@media screen and (max-height: 815px) {
+  /* time travel section */
+
+  .time-travel .copyParentDiv{
+    margin-top: 1rem;
+  }
+
+  .ttIllustration{
+    margin-top: 2rem;
+    width: 80%;
+  }
+
+  /* setup section */  
+  .setup .leftSection .heading{
+    top: 0rem;
+    font-size: 40px !important;
+  }
+  
+  .setup .leftSection .description{
+    font-size: 22px;
+    margin-top: 1rem;
+  }
+  
+  .setup .leftSection .multipleAccounts{
+    margin-top: 1rem;
+    width: 40%;
+    margin-bottom: 3rem;
+  }
+
+  /* publish section */  
+  .publish .leftSection .heading{
+    font-size: 2.7rem !important;
+    margin-top: 2.5rem !important;
+  }
+  .publish .leftSection .description{
+    font-size: 1.3rem;
+  }
+  
+  .publish .leftSection .publishIllustration{
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+    width: 50%;
+  }
+
+  /* web section */
+  .webIllustration{
+    transform: scale(1.1);
+    top: 23%;
+    left: 5%;
+  }
+
+  /* commit section */
+  .commitIllustration{
+    transform: scale(1.2);
+    top: 28%;
+  }
+
+  /* security section */
+  .security{
+    height: auto !important;
+  }
+
+  .securitySection{
+    margin-top: 1rem;
+  }
+}
+
+
+@media screen and (max-height: 715px) {
+  .copyDiv{
+    font-size: 1rem;
+  }
+
+  .heading{
+    font-size: 3rem !important;
+  }
+
+  /* goodgit section */
+  .goodgit .logo{
+    margin-top: 6rem;
+    width: 40%;
+  }
+
+  /* time travel section */
+  .ttIllustration{
+    width: 60%;
+  }
+
+  /* setup section */  
+  .setup .leftSection .heading{
+    top: -1rem;
+    font-size: 36px !important;
+  }
+  
+  .setup .leftSection .description{
+    font-size: 20px;
+    margin-top: -1.5rem;
+  }
+  
+  .setup .leftSection .multipleAccounts{
+    margin-top: 0.5rem;
+    width: 40%;
+    margin-bottom: 1.5rem;
+  }
+
+  /* publish section */  
+  .publish .leftSection .heading{
+    font-size: 2.5rem !important;
+    margin-top: 2.5rem;
+  }
+  .publish .leftSection .description{
+    font-size: 1.2rem;
+  }
+  
+  .publish .leftSection .publishIllustration{
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+    width: 40%;
+  }
+
+  /* web section */
+  .webIllustration{
+    transform: scale(0.8);
+    top: 21%;
+    left: 4%;
+  }
+
+  /* commit section */
+  .commitIllustration{
+    transform: scale(1);
+    top: 26%;
+    left: 17%;
+  }
+
+  /* security section */
+  .security{
+    height: auto !important;
+  }
+
+  .securitySection{
+    margin-top: 1rem;
+  }
+}
+
+
+@media screen and (max-width: 1300px) {
+  .rightSection{
+    margin: 1rem !important;
+  }
+
+  .leftSection{
+    margin-left: -2rem;
+    margin-top: -2rem;
+  }
+
+  .commitIllustration{
+    transform: scale(1);
+    top: 29%;
+    left: 16%;
+  }
+
+  .webIllustration{
+    top: 25.5%;
+    left: 1%;
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .commitIllustration{
+    margin-top: 0.8rem;
+    margin-left: -3rem;
+    transform: scale(0.9);
+  }
+
+  .webIllustration{
+    transform: scale(0.9);
+    margin-left: -2rem;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .details{
+    gap: 3.5rem !important;
+  }
+
+  .heading{
+    font-size: 2.5rem !important;
+  }
+
+  .leftSection{
+    margin-left: -3rem;
+  }
+
+  .commitIllustration{
+    margin-left: -4rem;
+    transform: scale(0.8);
+  }
+
+  .webIllustration{
+    transform: scale(0.7);
+    margin-left: -4rem;
+    margin-top: 1rem;
+  }
+
+  .copyDiv{
+    font-size: 0.9rem;
+  }
+
+  .or{
+    font-size: 0.8rem !important;
+    margin: 20px auto !important;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  #picker-container{
+    height: 35vh;
+  }
+
+  .topSection{
+    height: 65vh;
+  }
+
+  .details{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
